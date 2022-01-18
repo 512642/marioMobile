@@ -5,16 +5,16 @@ using UnityEngine.UI;
 
 public class PlayerMain : MonoBehaviour
 {
-    protected float score;
-    protected float lives;
-    
+    protected float score = 0;
+    protected float lives = 3;
+    public Rigidbody2D rb;
+
 
 
     // Start is called before the first frame update
     void Start()
     {
-        score = 0;
-        lives = 3;
+    
     }
 
     // Update is called once per frame
