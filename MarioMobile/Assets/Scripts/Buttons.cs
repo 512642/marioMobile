@@ -1,17 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Buttons : MonoBehaviour
 {
-    public Rigidbody2D playerrb;
-    float jumpForce = 600;
+    public bool jumpPressed = false;
+    public bool sprintPressed = false;
 
     public void jump()
     {
-        if(Input.GetKey("Jump"))
-        {
-            
-        }
+        jumpPressed = true;
+    }
+    public void Sprint()
+    {
+        sprintPressed = true;
     }
 }

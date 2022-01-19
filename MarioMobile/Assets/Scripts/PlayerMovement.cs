@@ -8,6 +8,9 @@ public class PlayerMovement : PlayerMain
     float speed = 750;
     float saveSpeed;
     float sprintSpeed = 1250;
+    float jumpPower = 600;
+
+    Buttons buttonScript;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +22,7 @@ public class PlayerMovement : PlayerMain
     {
         Running();
         Sprinting();
+        Jumping();
     }
 
     void Running()
@@ -29,17 +33,31 @@ public class PlayerMovement : PlayerMain
 
     void Sprinting()
     {
-        if(Input.GetKey(KeyCode.LeftShift))
+        if(buttonScript.sprintPressed == true)
         {
             speed = sprintSpeed;
-        }
-        else
-        {
-            speed = saveSpeed;
+            Running();
         }
 
-       
+        StopSprinting();
     }
+    void StopSprinting()
+    {
+        if(rb.velocity.x < 10)
+        {
+            speed = saveSpeed;
+            buttonScript.sprintPressed = false;
+        }
+    }
+       void Jumping()
+       {
+           if(buttonScript.jumpPressed == true)
+           {
+               rb.velocity += new Vector2(0, jumpPower);
+               buttonScript.jumpPressed = false;
+           }
+       }
+
 
     
 }
