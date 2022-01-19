@@ -6,8 +6,12 @@ public class Buttons : MonoBehaviour
 {
     public Rigidbody2D playerrb;
     float jumpForce = 600;
+
     public void jump()
     {
-        playerrb.velocity;
+        if(Input.GetKey("Jump"))
+        {
+            
+        }
     }
 }
