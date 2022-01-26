@@ -9,11 +9,16 @@ public class PlayerMovement : PlayerMain
     float saveSpeed;
     float sprintSpeed = 1250;
     float jumpPower = 600;
+    bool buttonSprintPressed;
 
     Buttons buttonScript;
+
+    
     // Start is called before the first frame update
     void Start()
     {
+        buttonScript = GetComponent<Buttons>();
+        buttonSprintPressed = buttonScript.sprintPressed;
         saveSpeed = speed;
     }
 
@@ -33,28 +38,27 @@ public class PlayerMovement : PlayerMain
 
     void Sprinting()
     {
-        if(buttonScript.sprintPressed == true)
+        if(buttonSprintPressed == true)
         {
-            speed = sprintSpeed;
             Running();
+            speed = sprintSpeed;
+            buttonSprintPressed = false;
         }
 
-        StopSprinting();
     }
     void StopSprinting()
     {
         if(rb.velocity.x < 10)
         {
-            speed = saveSpeed;
-            buttonScript.sprintPressed = false;
+            speed = saveSpeed;            
         }
     }
        void Jumping()
        {
-           if(buttonScript.jumpPressed == true)
+           if(buttonSprintPressed == true)
            {
                rb.velocity += new Vector2(0, jumpPower);
-               buttonScript.jumpPressed = false;
+               buttonSprintPressed = false;
            }
        }
 
