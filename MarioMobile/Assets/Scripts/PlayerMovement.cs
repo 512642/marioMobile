@@ -9,49 +9,46 @@ public class PlayerMovement : PlayerMain
     float saveSpeed;
     float sprintSpeed = 1250;
     float jumpPower = 600;
+    Rigidbody2D rb;
     bool buttonSprintPressed;
 
-    Buttons buttonScript;
-
-    
+    public Buttons buttonScript;
     // Start is called before the first frame update
     void Start()
-    {
-        buttonScript = GetComponent<Buttons>();
-        buttonSprintPressed = buttonScript.sprintPressed;
+    {        
+     
+        rb = GetComponent<Rigidbody2D>();
         saveSpeed = speed;
     }
 
     // Update is called once per frame
     void Update()
     {
+        buttonSprintPressed = buttonScript.sprintPresseed;
         Running();
         Sprinting();
         Jumping();
     }
-
+    
     void Running()
     {
         x = ReadX();
-        rb.velocity = new Vector3(x, 0, 0) * speed * Time.deltaTime;
+        rb.velocity = new Vector3(x * speed, 0, 0) * Time.deltaTime;
     }
 
-    void Sprinting()
+    public void Sprinting()
     {
-        if(buttonSprintPressed == true)
+        if(buttonSprintPressed == true && x > 0.1)
         {
-            Running();
+            
             speed = sprintSpeed;
             buttonSprintPressed = false;
         }
-
-    }
-    void StopSprinting()
-    {
-        if(rb.velocity.x < 10)
+        else
         {
             speed = saveSpeed;            
         }
+
     }
        void Jumping()
        {
@@ -61,7 +58,17 @@ public class PlayerMovement : PlayerMain
                buttonSprintPressed = false;
            }
        }
+    protected void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.collider.tag == "death")
+        {
+            lives--;
+        }
+    }
+    protected virtual float ReadX()
+    {
+        return Input.GetAxis("Horizontal");
+    }
 
 
-    
 }
