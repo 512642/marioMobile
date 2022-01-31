@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlayerMovement : PlayerMain
 {
     float x;
-    float speed = 750;
-    float saveSpeed;
+    float speed;
+    float saveSpeed = 750;
     float sprintSpeed = 1250;
     float jumpPower = 600;
     Rigidbody2D rb;
@@ -18,12 +18,13 @@ public class PlayerMovement : PlayerMain
     {        
      
         rb = GetComponent<Rigidbody2D>();
-        saveSpeed = speed;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        print(rb.velocity.x);
         buttonSprintPressed = buttonScript.sprintPresseed;
         Running();
         Sprinting();
@@ -38,7 +39,7 @@ public class PlayerMovement : PlayerMain
 
     public void Sprinting()
     {
-        if(buttonSprintPressed == true && x > 0.1)
+        if(buttonSprintPressed == true && rb.velocity.x > 0.1)
         {
             
             speed = sprintSpeed;
