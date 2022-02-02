@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PlayerMain : MonoBehaviour
 {
     protected float score = 0;
-    protected float lives = 3;
+    protected float lives = 5;
 
 
 
