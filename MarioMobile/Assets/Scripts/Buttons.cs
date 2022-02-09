@@ -7,7 +7,7 @@ public class Buttons : MonoBehaviour
 {
     public bool sprintPresseed = false;
     public bool jumpPressed = false;
-    public void jump()
+    public void Jump()
     {
         jumpPressed = true;
     }

@@ -8,17 +8,16 @@ public class PlayerMovement : PlayerMain
     float speed;
     float saveSpeed = 750;
     float sprintSpeed = 1250;
-    float jumpPower = 600;
+    float jumpPower = 3000;
     Rigidbody2D rb;
     bool buttonSprintPressed;
+    bool buttonJumpPressed;
 
     public Buttons buttonScript;
     // Start is called before the first frame update
     void Start()
-    {        
-     
-        rb = GetComponent<Rigidbody2D>();
-        
+    {             
+        rb = GetComponent<Rigidbody2D>();        
     }
 
     // Update is called once per frame
@@ -26,6 +25,7 @@ public class PlayerMovement : PlayerMain
     {
         print(rb.velocity.x);
         buttonSprintPressed = buttonScript.sprintPresseed;
+        buttonJumpPressed = buttonScript.jumpPressed;
         Running();
         Sprinting();
         Jumping();
@@ -39,11 +39,9 @@ public class PlayerMovement : PlayerMain
 
     public void Sprinting()
     {
-        if(buttonSprintPressed == true && rb.velocity.x > 0.1)
-        {
-            
-            speed = sprintSpeed;
-            buttonSprintPressed = false;
+        if(buttonSprintPressed == true && rb.velocity.x > 0.8)
+        {            
+            speed = sprintSpeed;            
         }
         else
         {
@@ -53,10 +51,10 @@ public class PlayerMovement : PlayerMain
     }
        void Jumping()
        {
-           if(buttonSprintPressed == true)
+           if(buttonJumpPressed == true)
            {
-               rb.velocity += new Vector2(0, jumpPower);
-               buttonSprintPressed = false;
+                rb.AddForce(Vector2.up * jumpPower);
+               
            }
        }
     protected void OnCollisionEnter2D(Collision2D col)
