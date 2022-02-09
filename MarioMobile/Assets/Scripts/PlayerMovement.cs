@@ -12,6 +12,8 @@ public class PlayerMovement : PlayerMain
     Rigidbody2D rb;
     bool buttonSprintPressed;
 
+    //public Joystick joystick;
+    
     public Buttons buttonScript;
     // Start is called before the first frame update
     void Start()
