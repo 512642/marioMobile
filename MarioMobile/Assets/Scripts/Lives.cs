@@ -17,9 +17,11 @@ public class Lives : PlayerMain
     void Update()
     {
         //Displays player lives while the player has any left.
-        //while (lives > 0)
-        
+        while (lives > 0)
+        {
             livesText.text = ("Lives: " + lives);
+        }        
+            
         
     }
 }
