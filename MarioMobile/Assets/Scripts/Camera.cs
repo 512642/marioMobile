@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Camera : MonoBehaviour
+public class CameraFollow : MonoBehaviour
 {
     public Transform player;
     
@@ -15,6 +15,6 @@ public class Camera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(player.transform.position.x, 0, -10);
+       transform.position = new Vector3(player.transform.position.x, 0, -10);
     }
 }
