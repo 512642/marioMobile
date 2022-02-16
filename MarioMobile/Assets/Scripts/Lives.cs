@@ -10,14 +10,14 @@ public class Lives : PlayerMain
     // Start is called before the first frame update
     void Start()
     {
-        
+    
     }
 
     // Update is called once per frame
     void Update()
     {
         //Displays player lives while the player has any left.
-        while (lives > 0)
+        if (lives > 0)
         {
             livesText.text = ("Lives: " + lives);
         }        
