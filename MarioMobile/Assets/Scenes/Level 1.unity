@@ -1532,7 +1532,6 @@ GameObject:
   - component: {fileID: 2073680185}
   - component: {fileID: 2073680188}
   - component: {fileID: 2073680190}
-  - component: {fileID: 2073680187}
   - component: {fileID: 2073680189}
   m_Layer: 0
   m_Name: Player
@@ -1608,22 +1607,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2073680187
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2073680184}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f1a66ac9701d914aad0ca9b92474831, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gravity: -9.81
-  joystick: {fileID: 581093189}
-  JumpButtonScript: {fileID: 2000415498}
-  SprintButtonScript: {fileID: 630888411}
 --- !u!50 &2073680188
 Rigidbody2D:
   serializedVersion: 4
@@ -1730,11 +1713,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94f4c1c63b58f0d42a94d9c3f056bb92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: 0
+  speed: 0
   walk: 0
   run: 0
-  saveWalk: 0
   jump: 0
   jumpButtonPressed: 0
+  sprintButtonPressed: 0
   rb: {fileID: 2073680188}
   jumpButtonScipt: {fileID: 2000415498}
   sprintButtonScipt: {fileID: 630888411}
+  joystick: {fileID: 581093189}
