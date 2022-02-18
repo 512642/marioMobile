@@ -7,9 +7,11 @@ public class PlayerMechanics : MonoBehaviour
     [Header("Player Variables")]
     [SerializeField]    float x;
     [SerializeField]    float speed;
-    [SerializeField]    float walk = 1000;
-    [SerializeField]    float run = 2000;
-    [SerializeField]    float jump = 10;
+    [SerializeField]    float walk;
+    [SerializeField]    float run;
+    [SerializeField]    float jump;
+    [SerializeField]    float fallMultiplier;
+    [SerializeField]    float lowJumpMultiplier;
     [SerializeField]    bool jumpButtonPressed = false;
     [SerializeField]    bool sprintButtonPressed = false;
 
@@ -34,15 +36,15 @@ public class PlayerMechanics : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Walking();
-        Sprinting();
-        Jumping();
+        JumpCurve();
+        Walking();        
     }
 
     public void Walking()
     {
         x = joystick.Horizontal;
         rb.velocity = new Vector2(x * speed, 0) * Time.deltaTime;
+        Sprinting();
     }
 
     public void Sprinting()
@@ -59,9 +61,15 @@ public class PlayerMechanics : MonoBehaviour
 
     public void Jumping()
     {
-        if(jumpButtonPressed == true)
+        rb.AddForce(new Vector2(0, jump));          
+        
+    }
+
+    public void JumpCurve()
+    {
+        if (rb.velocity.y < 0)
         {
-            rb.AddForce(new Vector2(0, jump), ForceMode2D.Impulse);
-        }        
+            rb.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+        }
     }
 }

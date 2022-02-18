@@ -10,13 +10,11 @@ public class ButtonsScript : MonoBehaviour
     public GameObject jumpButton;
     public GameObject sprintButton;
 
-    private void Update()
-    {
-       
-    }
+    public PlayerMechanics playerMechanics;
+
     public void Jump()
     {
-        jumpPressed = true;
+        playerMechanics.Jumping();
     }
     public void Sprint()
     {

@@ -507,7 +507,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 0.23529412}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -596,6 +596,7 @@ MonoBehaviour:
   jumpPressed: 0
   jumpButton: {fileID: 0}
   sprintButton: {fileID: 630888406}
+  playerMechanics: {fileID: 0}
 --- !u!1 &751990735
 GameObject:
   m_ObjectHideFlags: 0
@@ -950,29 +951,29 @@ PolygonCollider2D:
     - - {x: 22.737919, y: -1.6944017}
       - {x: 22.704887, y: -0.24285105}
       - {x: 22.572094, y: -0.24063551}
-      - {x: 22.554274, y: -1.6830859}
+      - {x: 22.543066, y: -1.6914908}
       - {x: 21.138374, y: -1.689836}
       - {x: 21.112696, y: -1.0531552}
-      - {x: 20.972729, y: -1.0289428}
-      - {x: 20.961563, y: -1.1909072}
+      - {x: 20.967125, y: -1.051356}
+      - {x: 20.967167, y: -1.216122}
       - {x: 20.16537, y: -1.2189144}
       - {x: 20.144117, y: -1.0500711}
-      - {x: 19.846115, y: -1.0322857}
+      - {x: 19.848917, y: -1.0546988}
       - {x: 19.842295, y: -1.6772006}
       - {x: 18.868975, y: -1.6850215}
-      - {x: 18.846241, y: -1.0504711}
-      - {x: 17.465836, y: -1.0217285}
-      - {x: 17.46883, y: -1.0597641}
-      - {x: 17.476316, y: -1.6864287}
+      - {x: 18.871458, y: -1.0700827}
+      - {x: 17.454628, y: -1.0637531}
+      - {x: 17.454823, y: -1.0877806}
+      - {x: 17.451101, y: -1.6864287}
       - {x: 16.4945, y: -1.6890359}
       - {x: 14.943443, y: -1.6867644}
       - {x: 14.276587, y: -1.6864287}
       - {x: 13.549315, y: -1.691643}
       - {x: 12.649728, y: -1.6987933}
-      - {x: 10.070311, y: -1.6875339}
+      - {x: 10.103929, y: -1.7043437}
       - {x: 10.089601, y: -1.8454145}
-      - {x: 9.444565, y: -1.8526119}
-      - {x: 9.433838, y: -1.6907051}
+      - {x: 9.427755, y: -1.8582152}
+      - {x: 9.40582, y: -1.7019117}
       - {x: 8.455532, y: -1.7048414}
       - {x: 6.4125476, y: -1.6938428}
       - {x: 6.1025505, y: -1.6947426}
@@ -980,18 +981,18 @@ PolygonCollider2D:
       - {x: 5.2707143, y: -1.8659942}
       - {x: 5.2512474, y: -1.7000169}
       - {x: 4.7936916, y: -1.6938089}
-      - {x: 4.7812424, y: -1.367257}
-      - {x: 4.5046916, y: -1.3906714}
+      - {x: 4.778441, y: -1.3784635}
+      - {x: 4.457063, y: -1.385068}
       - {x: 3.5375853, y: -0.40484124}
-      - {x: 2.7123833, y: -0.41891006}
+      - {x: 2.7263908, y: -0.41891006}
       - {x: 2.721931, y: -0.7329788}
-      - {x: 2.2562737, y: -0.6984312}
+      - {x: 2.2534723, y: -0.7432575}
       - {x: 2.2392845, y: -1.6964271}
       - {x: -1.1939788, y: -1.6994907}
       - {x: -1.2227418, y: -1.0482303}
       - {x: -1.2580113, y: -1.0678653}
-      - {x: -1.2714224, y: -1.6749964}
-      - {x: -1.4294554, y: -1.6807863}
+      - {x: -1.2798269, y: -1.6918062}
+      - {x: -1.4294554, y: -1.689191}
       - {x: -1.4424074, y: -1.0593704}
       - {x: -1.5303578, y: -1.055801}
       - {x: -1.5357156, y: -1.69598}
@@ -1023,28 +1024,29 @@ PolygonCollider2D:
       - {x: -13.586626, y: -1.1971061}
       - {x: -13.129206, y: -1.6869357}
       - {x: -13.916982, y: -1.7111638}
-      - {x: -13.931388, y: -1.0390927}
+      - {x: -13.928586, y: -1.0783156}
       - {x: -13.985284, y: -1.0594876}
-      - {x: -14.401593, y: -1.0431788}
+      - {x: -14.328751, y: -1.0599887}
       - {x: -14.834574, y: -1.0593145}
       - {x: -16.139162, y: -1.0451853}
       - {x: -16.492695, y: -0.7217269}
       - {x: -17.301165, y: -1.5801945}
-      - {x: -17.413092, y: -1.7051716}
-      - {x: -18.433088, y: -1.6921021}
-      - {x: -18.340797, y: -1.6893983}
-      - {x: -19.871561, y: -1.696704}
-      - {x: -20.885769, y: -1.6828752}
-      - {x: -22.395374, y: -1.6763289}
+      - {x: -17.455118, y: -1.7387912}
+      - {x: -18.391064, y: -1.7285234}
+      - {x: -18.273558, y: -1.7202164}
+      - {x: -19.846346, y: -1.7247204}
+      - {x: -20.812428, y: -1.7151455}
+      - {x: -22.38364, y: -1.7056656}
       - {x: -22.81269, y: -1.2794122}
       - {x: -23.355005, y: -0.7417223}
       - {x: -23.821157, y: -1.2251898}
-      - {x: -23.826542, y: -1.2051945}
+      - {x: -23.814808, y: -1.2257301}
       - {x: -23.351185, y: -1.6967039}
-      - {x: -24.856926, y: -1.6759492}
+      - {x: -24.610498, y: -1.6964847}
+      - {x: -24.94305, y: -1.6953483}
       - {x: -25.594616, y: -1.6913426}
       - {x: -25.6, y: -2.1625001}
-      - {x: 25.6, y: -2.1625001}
+      - {x: 25.584751, y: -2.143437}
       - {x: 25.588837, y: -1.682149}
       - {x: 23.056753, y: -1.6813922}
       - {x: 23.013186, y: -0.25270402}
@@ -1238,6 +1240,7 @@ GameObject:
   - component: {fileID: 2000415496}
   - component: {fileID: 2000415495}
   - component: {fileID: 2000415494}
+  - component: {fileID: 2000415497}
   m_Layer: 5
   m_Name: Jump
   m_TagString: Untagged
@@ -1286,7 +1289,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 0.23529412}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -1309,10 +1312,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2000415498}
-        m_TargetAssemblyTypeName: ButtonsScript, Assembly-CSharp
+      - m_Target: {fileID: 2000415497}
+        m_TargetAssemblyTypeName: JumpButton, Assembly-CSharp
         m_MethodName: Jump
-        m_Mode: 6
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1359,6 +1362,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2000415492}
   m_CullTransparentMesh: 0
+--- !u!114 &2000415497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2000415492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7caaea20af93de4885f7d5074135b80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerMechanics: {fileID: 2073680190}
 --- !u!114 &2000415498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1375,6 +1391,7 @@ MonoBehaviour:
   jumpPressed: 0
   jumpButton: {fileID: 2000415492}
   sprintButton: {fileID: 0}
+  playerMechanics: {fileID: 0}
 --- !u!1 &2056569991
 GameObject:
   m_ObjectHideFlags: 0
@@ -1533,6 +1550,7 @@ GameObject:
   - component: {fileID: 2073680188}
   - component: {fileID: 2073680190}
   - component: {fileID: 2073680189}
+  - component: {fileID: 2073680187}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1607,6 +1625,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!70 &2073680187
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2073680184}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.0026636522}
+  m_Size: {x: 0.17869124, y: 0.17691517}
+  m_Direction: 0
 --- !u!50 &2073680188
 Rigidbody2D:
   serializedVersion: 4
@@ -1619,14 +1653,14 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.3939164
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 5
+  m_GravityScale: 15
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!60 &2073680189
 PolygonCollider2D:
@@ -1635,7 +1669,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2073680184}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -1715,9 +1749,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   x: 0
   speed: 0
-  walk: 0
-  run: 0
-  jump: 0
+  walk: 1500
+  run: 3000
+  jump: 5000
+  fallMultiplier: 2.5
+  lowJumpMultiplier: 1
   jumpButtonPressed: 0
   sprintButtonPressed: 0
   rb: {fileID: 2073680188}
