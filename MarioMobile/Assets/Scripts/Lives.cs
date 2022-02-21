@@ -6,21 +6,12 @@ using UnityEngine.UI;
 public class Lives : PlayerMain
 {
     public Text livesText;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-    
-    }
-
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         //Displays player lives while the player has any left.
-        if (lives > 0)
-        {
-            livesText.text = ("Lives: " + lives);
-        }        
+        livesText.text = ("Lives: " + displayLives);
+              
             
         
     }

@@ -2,19 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMechanics : MonoBehaviour
+public class PlayerMechanics : PlayerMain
 {
     [Header("Player Variables")]
-    [SerializeField]    float x;
-    [SerializeField]    float speed;
-    [SerializeField]    float walk;
-    [SerializeField]    float run;
-    [SerializeField]    float jumpPower;
-    [SerializeField]    int extraJump;
+    [SerializeField] float x;
+    [SerializeField] float speed;
+    [SerializeField] float walk;
+    [SerializeField] float run;
+    [SerializeField] float jumpPower;
+    [SerializeField] int extraJump;
+    [SerializeField] GameObject RespawnPoint;
 
 
-    [Header ("Physics")]
-    [SerializeField]  Rigidbody2D rb;
+    [Header("Physics")]
+    [SerializeField] Rigidbody2D rb;
     [SerializeField] bool hasJumped;
     [SerializeField] LayerMask GroundLayer;
     [SerializeField] Transform checkForFloor;
@@ -46,7 +47,6 @@ public class PlayerMechanics : MonoBehaviour
     void FixedUpdate()
     {
         Walking();
-        SpeedUp();
         CheckGrounded();
     }
 
@@ -62,19 +62,19 @@ public class PlayerMechanics : MonoBehaviour
         if (isGrounded || jumpCount < extraJump)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpPower);
-            jumpCount ++;
-        }        
+            jumpCount++;
+        }
     }
 
     void CheckGrounded()
     {
-        if(Physics2D.OverlapCircle(checkForFloor.position, 0.5f, GroundLayer))
+        if (Physics2D.OverlapCircle(checkForFloor.position, 0.5f, GroundLayer))
         {
             isGrounded = true;
             jumpCount = 0;
             jumpCoolDown = Time.time + 0.2f;
         }
-        else if(Time.time < jumpCoolDown)
+        else if (Time.time < jumpCoolDown)
         {
             isGrounded = true;
         }
@@ -83,20 +83,13 @@ public class PlayerMechanics : MonoBehaviour
             isGrounded = false;
         }
     }
-    void SpeedUp()
+    public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (x > 0.1 || x < 0.1)
+        if (collision.collider.tag == "Death")
         {
-            currentTime -= 1 * Time.time;
+            LoseLife();
+            gameObject.transform.position = RespawnPoint.transform.position;
         }
-        if( currentTime < 1)
-        {
-            speed = run;
-        }
-        else
-        {
-            speed = walk;
-        }
-            
     }
 }
+
