@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerMechanics : PlayerMain
 {
@@ -12,6 +14,7 @@ public class PlayerMechanics : PlayerMain
     [SerializeField] float jumpPower;
     [SerializeField] int extraJump;
     [SerializeField] GameObject RespawnPoint;
+    [SerializeField] public int lives = 5;
 
 
     [Header("Physics")]
@@ -22,14 +25,16 @@ public class PlayerMechanics : PlayerMain
 
     [Header("Scripts")]
     [SerializeField] ButtonsScript jumpButtonScipt;
-    [SerializeField] ButtonsScript sprintButtonScipt;
     [SerializeField] Joystick joystick;
+    [SerializeField] Text finalScoreText;
 
-
+    public GameObject EndGameButtons;
+    public GameObject LevelWonButtons;
     int jumpCount = 0;
     bool isGrounded;
     float jumpCoolDown;
 
+    float finalScore;
     float currentTime = 0;
     float startingTime = 2f;
 
@@ -39,7 +44,6 @@ public class PlayerMechanics : PlayerMain
         currentTime = startingTime;
         speed = walk;
         rb = gameObject.GetComponent<Rigidbody2D>();
-        bool sprintButtonPressed = sprintButtonScipt.sprintPresseed;
         bool jumpButtonPressed = jumpButtonScipt.jumpPressed;
     }
 
@@ -83,12 +87,30 @@ public class PlayerMechanics : PlayerMain
             isGrounded = false;
         }
     }
+
+    //displayLives = lives.ToString("F0");
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.tag == "Death")
+        if (collision.collider.tag == "Death" || gameObject.transform.position.y < -7)
+        {            
+            if(lives > 1)
+            {
+                gameObject.transform.position = RespawnPoint.transform.position;
+                lives--;
+            }
+            else
+            {
+
+                EndGameButtons.SetActive(true);
+
+            }
+        }
+
+        if(collision.collider.tag == "Finish")
         {
-            LoseLife();
-            gameObject.transform.position = RespawnPoint.transform.position;
+            LevelWonButtons.SetActive(true);
+            finalScore = score;
+            finalScoreText.text = ("Final Score: " + finalScore.ToString("F0"));
         }
     }
 }

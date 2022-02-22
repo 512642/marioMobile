@@ -2,33 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerMain : MonoBehaviour
 {
-    protected float score = 0;
-    int scorePerSecond = 10;
+    public float score = 0;
+    int scorePerSecond;
     public string displayScore;
-    public string displayLives;
-    protected float lives = 5;
+
     public void Update()
     {
         GetPoints();
-        GetLives();
-    }
-    public void LoseLife()
-    {
-        lives--;
-    }
-
-    public void GetLives()
-    {
-        displayLives = lives.ToString("F0");
     }
     public void GetPoints()
-    {        
+    {
         score = scorePerSecond * Time.time;
         displayScore = score.ToString("F0");
+        scorePerSecond = 10;
     }
-
 
 }

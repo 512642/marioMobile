@@ -5,14 +5,13 @@ using UnityEngine.UI;
 
 public class Lives : PlayerMain
 {
+    public GameObject player;
+    public PlayerMechanics playerMechanics;
     public Text livesText;
     // Update is called once per frame
     void FixedUpdate()
-    {
-        //Displays player lives while the player has any left.
+    {        
+        string displayLives = playerMechanics.lives.ToString("F0");
         livesText.text = ("Lives: " + displayLives);
-              
-            
-        
     }
 }

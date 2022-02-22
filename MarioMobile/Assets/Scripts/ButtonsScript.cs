@@ -2,22 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ButtonsScript : MonoBehaviour
 {
-    public bool sprintPresseed = false;
     public bool jumpPressed = false;
     public GameObject jumpButton;
-    public GameObject sprintButton;
-
     public PlayerMechanics playerMechanics;
+    PlayerMain playerMain;
+
+    public void Start()
+    {
+        playerMain = GetComponent<PlayerMain>();
+    }
 
     public void Jump()
     {
         playerMechanics.Jumping();
     }
-    public void Sprint()
+
+    public void Retry()
     {
-        sprintPresseed = true;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
     }
 }
