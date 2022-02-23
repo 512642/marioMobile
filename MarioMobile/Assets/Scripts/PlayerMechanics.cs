@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class PlayerMechanics : PlayerMain
+public class PlayerMechanics : MonoBehaviour
 {
     [Header("Player Variables")]
     [SerializeField] float x;
@@ -33,8 +33,9 @@ public class PlayerMechanics : PlayerMain
     int jumpCount = 0;
     bool isGrounded;
     float jumpCoolDown;
-
+    private float score;
     float finalScore;
+
     float currentTime = 0;
     float startingTime = 2f;
 
@@ -45,6 +46,18 @@ public class PlayerMechanics : PlayerMain
         speed = walk;
         rb = gameObject.GetComponent<Rigidbody2D>();
         bool jumpButtonPressed = jumpButtonScipt.jumpPressed;
+
+        gameObject.GetComponent<PlayerMechanics>().SetScore(0);
+
+        if( PlayerPrefs.HasKey("score") == true )
+        {
+            score = PlayerPrefs.GetFloat("score");
+        }
+        else
+        {
+            score=0;
+        }
+
     }
 
     // Update is called once per frame
@@ -52,6 +65,7 @@ public class PlayerMechanics : PlayerMain
     {
         Walking();
         CheckGrounded();
+        UpdateScore();
     }
 
     public void Walking()
@@ -112,6 +126,34 @@ public class PlayerMechanics : PlayerMain
             finalScore = score;
             finalScoreText.text = ("Final Score: " + finalScore.ToString("F0"));
         }
+
+
     }
+
+
+    public float GetScore()
+    {
+        
+        return score;
+    }
+
+    public void SetScore( float value )
+    {
+        score = value;
+        PlayerPrefs.SetFloat("score", score);
+    }
+
+   
+
+    private void UpdateScore()
+    {
+        
+        PlayerPrefs.SetFloat("score", score);
+        score += Time.deltaTime * 10;
+
+        //print("score=" + score);
+    }
+
+
 }
 

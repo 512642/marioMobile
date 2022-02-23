@@ -215,8 +215,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f58f8c8b14e7364e8870b6f4fadce4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 0
-  displayScore: 
   player: {fileID: 2073680184}
   playerMechanics: {fileID: 2073680190}
   livesText: {fileID: 320140426}
@@ -369,6 +367,7 @@ MonoBehaviour:
   jumpPressed: 0
   jumpButton: {fileID: 0}
   playerMechanics: {fileID: 0}
+  player: {fileID: 2073680184}
 --- !u!1 &427651945
 GameObject:
   m_ObjectHideFlags: 0
@@ -880,6 +879,7 @@ MonoBehaviour:
   jumpPressed: 0
   jumpButton: {fileID: 0}
   playerMechanics: {fileID: 0}
+  player: {fileID: 2073680184}
 --- !u!114 &622137866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1453,6 +1453,7 @@ MonoBehaviour:
   jumpPressed: 0
   jumpButton: {fileID: 0}
   playerMechanics: {fileID: 0}
+  player: {fileID: 0}
 --- !u!114 &1351783856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1808,8 +1809,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 713e6641141a590468099c956a5e32b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 0
-  displayScore: 
   player: {fileID: 2073680184}
   scoreText: {fileID: 1478308828}
 --- !u!1 &1579106766
@@ -2493,6 +2492,7 @@ MonoBehaviour:
   jumpPressed: 0
   jumpButton: {fileID: 2000415492}
   playerMechanics: {fileID: 0}
+  player: {fileID: 0}
 --- !u!1 &2031045247
 GameObject:
   m_ObjectHideFlags: 0
@@ -3045,8 +3045,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94f4c1c63b58f0d42a94d9c3f056bb92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 0
-  displayScore: 
   x: 0
   speed: 0
   walk: 7.5
@@ -3177,6 +3175,7 @@ MonoBehaviour:
   jumpPressed: 0
   jumpButton: {fileID: 0}
   playerMechanics: {fileID: 0}
+  player: {fileID: 0}
 --- !u!114 &2145267107
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -10,6 +10,7 @@ public class ButtonsScript : MonoBehaviour
     public GameObject jumpButton;
     public PlayerMechanics playerMechanics;
     PlayerMain playerMain;
+    public GameObject player;
 
     public void Start()
     {
@@ -23,7 +24,9 @@ public class ButtonsScript : MonoBehaviour
 
     public void Retry()
     {
+        player.GetComponent<PlayerMechanics>().SetScore(0);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        print("load scene");
         
     }
 
